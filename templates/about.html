@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wms-project</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap">
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+	<!--<link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">-->
+    <script src="{% static 'js/index.js' %}"></script>
+</head>
+<style>
+    body{
+    font-family: 'Montserrat' sans-serif;
+    position: relative;
+}
+@media only screen and (min-width:1200px){
+    .nav-item > .nav-link {padding: 5px 20px !important;
+    display: block!important;}
+}
+@media only screen and (max-width:992px){
+    .header-inner{background-color: white!important;
+    }
+    .nav-item > .nav-link{
+    color: black!important;}
+    .logo{color: #000!important;
+    font-weight: 600!important;}
+    .content-banner .first-title{
+        font-size: 30px!important;}
+}
+.content-banner{color: whitesmoke;
+background-image: url("{% static 'images/sssdd.jpg' %}");
+min-height: 400px;
+height: 100%;
+position: relative;
+background-position: center center;
+background-size: cover;
+padding: 125px;
+}
+.content-banner:before{position:absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,128,128,0.2);
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.content-banner .first-title{
+    font-size:44px;
+    font-weight: 400;
+    line-height: 1.2;
+    position: relative;
+    z-index: 2;
+    margin: 0px 0px 12px;}
+.content-banner .banner-des{
+    font-size: 12px;
+    line-height: 150%;
+    letter-spacing: 0;
+    position: relative;
+    z-index: 2;
+    font-weight: 400;
+    margin-top: 0;
+}
+.banner-btn{padding:0 34px;
+    z-index: 1;
+    margin: 30px auto 25px;
+    line-height:56px;
+    position: relative;
+    border-radius: 6px;
+    height: 56px;
+    font-size: 16px;
+    background-color: #0093d8;
+    display: inline-block;
+    color: #0f0f0f;
+    transition: 0.3s;
+    text-align: center;
+    text-decoration: none;
+}
+.banner-btn:hover{
+    text-decoration:none;
+    color: #0093d8;
+    background-color: white;
+
+}
+.header{
+    position: relative;
+    width: 100%;
+}
+.header-inner{position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    background-color:transparent;
+}
+.logo{
+    color: #ffffff;
+}
+.nav-item .nav-link{
+line-height: 36px;
+text-transform: capitalize;
+font-size: 16px;
+font-weight: 500;
+color: #ffffff;
+transition: 0.15s;
+}
+.nav-item .nav-link:hover{color: #0093d8;}
+.header-btn{color: #ffffff;
+border-radius: 30px;
+background-color: gray;
+border: none;
+font-weight: 500;
+outline: none;
+font-size: 15px;
+padding: 7px 22px;
+transition: 0.5s;
+}
+.header-btn:hover{background-color: #0093d8;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.navbar-scroll{background-color: #ffffff;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.4);
+    transition-duration: 0.6s;
+}
+.navbar-scroll .nav-item .nav-link{color: black;}
+.navbar-scroll .header-btn{color: #ffffff;
+background-color: #0093d8;
+}
+.navbar-scroll .logo{color: #000;
+    font-weight:500;}
+.first-title{
+    text-transform: capitalize;
+}
+section{
+    background-color: white;
+    padding: 4rem 0rem 4rem;
+}
+/*footer*/
+.bg-gray{
+    background-color: black;
+}
+.py-6{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+.text-heading {
+    color: #ffffff;
+}
+.text-para{
+    color: #ffffff;
+}
+.p{
+    color: #ffffff;
+}
+.list-unstyled{
+    padding-left: 0;
+    list-style: none;
+}
+.list-unstyled li a{
+    text-decoration: none;
+}
+.list-unstyled li a:hover{
+    color: #0093d8;
+}
+.list-inline a:hover{
+    color: #0093d8;
+}
+.btn.btn-outline-dark{
+    background-color: #ffffff;
+    outline: cursive;
+}
+/*copyrights*/
+.py-4{
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+.bg-dark-gray{
+    background-color:#0093d8;
+}
+.text-gray-300{
+    color: antiquewhite;
+}
+</style>
+<body>
+    <!--header-->
+    <header class="header">
+        <div class="header-inner">
+            <div class="container-fluid px-lg-5">
+                <nav class="navbar navbar-expand-lg my-navbar">
+                      <a class="navbar-brand" href="{% url 'home' %}"><span class="logo">
+                          <img src="{% static 'images/wms(2).png' %}" class="img-fluid" style="width:30px; margin:-3px 0px 0px 0px;"> WMS</span>
+                      </a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"><i class="fas fa-bars" style="margin:5px 0px 0px 0px;"></i></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav m-auto">
+                          <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}" >
+                              Home
+                            </a>
+                          </li>
+						  <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                              Technology
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                              <li><a class="dropdown-item" href="{% url 'uav' %}">UAV Sensor</a></li>
+                             <!--<li><hr class="dropdown-divider"></li>-->
+                              <li><a class="dropdown-item" href="{% url 'datadisplay' %}">Client Data Display</a></li>
+							  <li><a class="dropdown-item" href="{% url 'cloud' %}">Cloud Management</a></li>
+                            </ul>
+                          </li>
+						  <li class="nav-item">
+                            <a class="nav-link active " href="{% url 'about' %}">About Us</a>
+                        </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                          <a class="header-btn my-2 my-sm-0 btn" href="{% url 'ourteam' %}"  style="text-decoration:none;">Our Team</a>
+                        </form>
+                      </div>
+                  </nav>
+            </div>
+        </div>
+    </header>
+<!--model login-->
+    <!--section banner-->
+    <section class="content-banner">
+        <div class="container">
+            <div class="row d-felx justify-content-center">
+                <div class="col-md-12">
+                    <div class="banner-con text-center">
+                        <!--<p class="first-title">Warehouse Management for Growing Business</p>
+                        <p class="banner-des">Fulfill faster and more efficiently</p>
+                        <button type="button" class="btn banner-btn" data-bs-toggle="modal" data-bs-target="#request">Request Demo</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--section-->
+	<section id="learn" class="p-5">
+	 <div class="container">
+	   <div class="row align-items-center justify-content-between">
+	       <div class="col-md">
+	            <img src="{% static 'images/section(7).svg' %}" class="img-fluid" alt="img">
+			</div>
+	        <div class="col-md p-5">
+	            <h2 class="bold">About Us</h2>
+	            <p class="lead">WMS helps businesses see what inventory they’ve got, where it is, and where there’s new demand for it.
+                    Because your data’s more useful when it’s all in one place. One Solution means a single codebase, single database and single platform that gives you real data, in real time that's reliable.
+                    Maximize operational efficiency – no integration glitches, no data lag, one unified view of all your operations, in a dashboard that works best for your team.
+                    Manage your inventory with 100% visibility at any given moment – from dock to stock, pick to ship, with cycle and physical counting, tracking, replenishment, receipt management, barcoding, labeling, cross-docking, returns and more
+                    Gauge your performance over time by setting benchmarks and capturing any number of key data points in real-time
+                </p>
+	        </div>
+	    </div>
+	</div>
+	</section>
+
+	<!--footer-->
+    <footer>
+        <div class="py-6 bg-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="fw-bold text-uppercase text-heading mb-3 directory">Contact Us</div>
+                        <p style="color:#ffffff;">
+                            info@wms.com<br>1-888-656-3470
+                        </p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a class="text-para" href="#" title="Youtube"><i class="fab fa-youtube"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="text-para" href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="text-para" href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="text-para" href="#" title="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-12 mb-5 mb-lg-0">
+                        <h6 class="text-uppercase text-heading mb-3">Technology</h6>
+                        <ul class="list-unstyled">
+                            <li><a class="text-para" href="{% url 'uav' %}">UAV Sensor</a></li>
+							<li><a class="text-para" href="{% url 'datadisplay' %}">Client Data Display</a></li>
+							<li><a class="text-para" href="{% url 'cloud' %}">Cloud Management</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h6 class="text-uppercase text-heading  mb-3" >About Us</h6>
+                        <p class="mb-3" style="color: #ffffff;">WMS helps businesses see what inventory they have got, where it is, and where there’s new demand for it.</p>
+                        <form action="#" id="newsletter-form">
+                            <div class="input-group mb-3">
+                                <button class="btn btn-outline-dark" type="submit"><i class="fa fa-paper-plane text-lg"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--copyrights-->
+        <div class="py-4 bg-dark-gray text-gray-300">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="text-sm mb-md-0">&copy; created by <b>SRIPRADOSH | ARAVIND PRABHU</b> </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wms-project</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap">
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+    <script src="{% static 'js/index.js' %}"></script>
+</head>
+<body>
+    <!--header-->
+    <header class="header">
+        <div class="header-inner">
+            <div class="container-fluid px-lg-5">
+                <nav class="navbar navbar-expand-lg my-navbar">
+                      <a class="navbar-brand" href="{% url 'home' %}"><span class="logo">
+                          <img src="{% static 'images/wms(2).png' %}" class="img-fluid" style="width:30px; margin:-3px 0px 0px 0px;"> WMS</span>
+                      </a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"><i class="fas fa-bars" style="margin:5px 0px 0px 0px;"></i></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav m-auto">
+                          <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'home' %}" >
+                              Home
+                            </a>
+                          </li>
+						  <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                              Technology
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                              <li><a class="dropdown-item" href="{% url 'uav' %}">UAV Sensor</a></li>
+                             <!--<li><hr class="dropdown-divider"></li>-->
+                              <li><a class="dropdown-item" href="{% url 'datadisplay' %}">Client Data Display</a></li>
+							  <li><a class="dropdown-item" href="{% url 'cloud' %}">Cloud Management</a></li>
+                            </ul>
+                          </li>
+						  <li class="nav-item">
+                            <a class="nav-link " href="{% url 'about' %}">About Us</a>
+                        </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                            <a class="header-btn my-2 my-sm-0 btn" href="{% url 'ourteam' %}" >Our Team</a>
+                        </form>
+                      </div>
+                  </nav>
+            </div>
+        </div>
+    </header>
+    <!--section banner-->
+    <section class="content-banner">
+        <div class="container">
+            <div class="row d-felx justify-content-center">
+                <div class="col-md-12">
+                    <div class="banner-con text-center">
+                        <p class="first-title">Warehouse Management for Growing Business</p>
+                        <p class="banner-des">Fulfill faster and more efficiently</p>
+                        <button type="button" class="btn banner-btn" data-bs-toggle="modal" data-bs-target="#request">Request Demo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Modal request demo -->
+<div class="modal fade" id="request" tabindex="-1" aria-labelledby="requestLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="requestLabel"><b>Request Demo</b></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+     <div class="modal-body">
+        <p class='lead'>Fill out this form, and we will get back to soon...</p>
+
+	    <form action="#" method="post">
+            {% csrf_token %}
+	<div  class='mb-3'>
+		<label for="name" class="col-form-label"><b>Name</b><span class="text-danger">*</span></label>
+		<input type="text" class="form-control" id="name" placeholder="Enter your name" required />
+	</div>
+	<div  class='mb-3'>
+		<label for="email" class="col-form-label"><b>Email</b><span class="text-danger">*</span></label>
+		<input type="email" class="form-control" id="email"  placeholder="Enter your company's email id" required />
+	</div>
+	<div  class='mb-3'>
+		<label for="company" class="col-form-label"><b>Company</b><span class="text-danger">*</span></label>
+		<input type="text" class="form-control" id="company" placeholder="Enter your company name" required />
+	</div>
+	<div  class='mb-3'>
+		<label for="phone" class="col-form-label"><b>Phone Number</b><span class="text-danger">*</span></label>
+		<input type="number" class="form-control" id="phone" placeholder="Enter your number" required />
+	</div>
+            <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--section-->
+	<section id="learn" class="p-5">
+	 <div class="container">
+	   <div class="row align-items-center justify-content-between">
+	       <div class="col-md">
+	            <img src="{% static 'images/section(1).svg' %}" class="img-fluid" alt="img">
+			</div>
+	        <div class="col-md p-5">
+	            <h2 class="bold">Get orders out the door faster</h2>
+	            <p class="lead">Implementing the latest technology and best practices for your fulfillment can result in increased sales,
+				faster fulfillment, and savings in time and operational costs. Bright Warehouse uses waved or waveless strategies based on order priorities, size, and your business’s needs.
+				Let us help you establish a process for your team to work faster and get more orders out the door!</p>
+	        </div>
+	    </div>
+	</div>
+	</section>
+
+	<section id="learn" class="p-5">
+	 <div class="container">
+	   <div class="row align-items-center justify-content-between">
+	        <div class="col-md p-5">
+	            <h2 class="bold">Connect your network</h2>
+	            <p class="lead">Tired of logging into multiple systems to achieve one task? See the big picture by viewing inventory across all channels in one location. Bright Warehouse provides enterprise-level inventory management with inbound and outbound visibility. Integrated with Bright Socket,  view real-time inventory updates across multiple channels.
+				With over 100+ prebuilt integrations it’s easy to manage everything in one place.</p>
+	        </div>
+	       <div class="col-md">
+	            <img src="{% static 'images/section(2).svg' %}" class="img-fluid" alt="img">
+			</div>
+	    </div>
+	</div>
+	</section>
+
+	<section id="learn" class="p-5">
+	 <div class="container">
+	   <div class="row align-items-center justify-content-between">
+	       <div class="col-md">
+	            <img src="{% static 'images/section(3).svg' %}" class="img-fluid" alt="img">
+			</div>
+	        <div class="col-md p-5">
+	            <h2 class="bold">Top three challenges retailers face in their operations and how to eliminate them</h2>
+	            <p class="lead">86% of buyers are willing to pay more for a great customer experience and 65% believe a positive experience (with a brand) is more influential than great advertising. However, creating a memorable customer experience is not as seamless as it appears.
+				The little details such as including a personalized card with every order or having a sales representative place an order online (for you) while in-store only becomes a reality due to omnichannel operation processes.</p>
+	        </div>
+	    </div>
+	</div>
+	</section>
+    <!--footer-->
+    <footer>
+        <div class="py-6 bg-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="fw-bold text-uppercase text-heading mb-3 directory">Contact Us</div>
+                        <p style="color:#ffffff;">
+                            info@wms.com<br>1-888-656-3470
+                        </p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a class="text-para" href="#" title="Youtube"><i class="fab fa-youtube"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="text-para" href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="text-para" href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="text-para" href="#" title="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-12 mb-5 mb-lg-0">
+                        <h6 class="text-uppercase text-heading mb-3">Technology</h6>
+                        <ul class="list-unstyled">
+                            <li><a class="text-para" href="{% url 'uav' %}">UAV Sensor</a></li>
+							<li><a class="text-para" href="{% url 'datadisplay' %}">Client Data Display</a></li>
+							<li><a class="text-para" href="{% url 'cloud' %}">Cloud Management</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h6 class="text-uppercase text-heading  mb-3" >About Us</h6>
+                        <p class="mb-3" style="color: #ffffff;">WMS helps businesses see what inventory they have got, where it is, and where there’s new demand for it.</p>
+                        <form action="#" id="newsletter-form">
+                            <div class="input-group mb-3">
+                                <button class="btn btn-outline-dark" type="submit"><i class="fa fa-paper-plane text-lg"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--copyrights-->
+        <div class="py-4 bg-dark-gray text-gray-300">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="text-sm mb-md-0">&copy; created by <b>SRIPRADOSH | ARAVIND PRABHU</b> </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>
